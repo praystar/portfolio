@@ -1,0 +1,71 @@
+.about-section {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: #8b8a8a;
+  color: #333;
+  scroll-snap-align: start;
+  overflow-x: hidden;
+}
+
+.column {
+  flex: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  /* Hide scrollbars */
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollable::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.floating-box {
+  background: #e0e0e0;
+  padding: 2rem;
+  border-radius: 16px;
+  min-height: 250px; /* Your chosen height */
+  transition: 0.3s ease;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.floating-box:hover {
+  background: #d6d6d6;
+  transform: translateY(-3px);
+}
+
+/* Optional: make the whole page snap nicely */
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+section {
+  scroll-snap-align: start;
+}
+
+.no-user-scroll {
+  pointer-events: none;
+  overflow: hidden !important;
+}

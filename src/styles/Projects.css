@@ -1,0 +1,85 @@
+.projects-wrapper {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  background: rgb(141, 139, 139);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 5vh 0; /* ⬅ Adds space top/bottom */
+  box-sizing: border-box;
+}
+
+
+.projects-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.project-slide {
+  height: 100%;
+  width: 10vw; /* default collapsed size */
+  transition: width 0.5s ease, transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+  flex-shrink: 0;
+  will-change: width;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.project-slide.active {
+  width: 55vw; /* ⬅ ACTIVE slide is ~55% of screen */
+  border-radius: 28px;
+}
+
+.project-slide:hover {
+  transform: scale(1.01);
+}
+
+
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: transform 0.4s ease;
+}
+
+.project-slide.active .project-image {
+  transform: scale(1.02);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 2rem;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.project-overlay h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.project-overlay p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ccc;
+}

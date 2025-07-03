@@ -1,0 +1,148 @@
+@import url('https://fonts.cdnfonts.com/css/vanger');
+
+@font-face {
+  font-family: 'CSBeyond';
+  src: url('./fonts/CSBeyond-Regular_demo.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Kyoto';
+  src: url('/src/fonts/kyoto.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Naganoshi';
+  src: url('/src/fonts/Naganoshi.otf') format('opentype');
+}
+
+/* Base Layout */
+html, body, #root, .fullscreen {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.fullscreen {
+  position: relative;
+}
+
+/* Scroll Container */
+.main-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+.main-container::-webkit-scrollbar {
+  display: none;
+}
+
+.section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-family: 'CSBeyond', sans-serif;
+  background-color: #111;
+  color: black;
+}
+
+/* === Dual Title Setup === */
+.glass-title-wrapper {
+  position: absolute;
+  top: 5%;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5vw;
+  z-index: 10;
+}
+
+.glass-title-block {
+  position: relative;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 7rem;
+  font-family: 'Kyoto', sans-serif;
+  font-weight: bold;
+  pointer-events: auto;
+  user-select: none;
+  backdrop-filter: blur(6px);
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.glass-title-block .kanji-layer {
+  position: relative;
+  z-index: 1;
+  color: black;
+  font-family: 'Naganoshi', sans-serif;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--x, var(--default-x, 50%)) var(--y, var(--default-y, 50%)),
+    transparent 250px,
+    black 151px
+  );
+  mask-image: radial-gradient(
+    circle at var(--x, var(--default-x, 50%)) var(--y, var(--default-y, 50%)),
+    transparent 250px,
+    black 151px
+  );
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+.glass-title-block .english-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  color: #777777;
+  font-family: 'Kyoto', sans-serif;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--x, var(--default-x, 50%)) var(--y, var(--default-y, 50%)),
+    black 0%,
+    transparent 250px
+  );
+  mask-image: radial-gradient(
+    circle at var(--x, var(--default-x, 50%)) var(--y, var(--default-y, 50%)),
+    black 0%,
+    transparent 250px
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Nav Buttons */
+.nav-buttons {
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 11;
+}
+
+.nav-buttons button {
+  font-family: 'CSBeyond', sans-serif;
+  padding: 1rem 2.5rem;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.nav-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  transform: scale(1.05);
+}

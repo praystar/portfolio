@@ -1,0 +1,35 @@
+.contact-page {
+    background-color: #000000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-box {
+    text-align: center;
+    padding: 3rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'CSBeyond', sans-serif;
+  }
+  
+  .social-icons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .social-icons a {
+    font-size: 2.4rem;
+    color: #000;
+    transition: transform 0.2s, color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: #0077b5; /* A subtle blue hover color */
+  }
+  
